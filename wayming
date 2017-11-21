@@ -1,0 +1,2 @@
+#!/bin/bash
+docker exec -it -u $(basename $0) -e FORCE_LOGNAME=$(basename $0) -e COLUMNS=$(tput cols) -e LINES=$(tput lines) -e TERM=${TERM} -e HOME=/home/$(basename $0) sandbox bash
