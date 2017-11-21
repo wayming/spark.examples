@@ -1,5 +1,5 @@
-M scratch
-ADD ubuntu-bionic-core-cloudimg-amd64-root.tar.gz /
+FROM scratch
+ADD https://partner-images.canonical.com/core/precise/current/ubuntu-precise-core-cloudimg-amd64-root.tar.gz /
 
 # a few minor docker-specific tweaks
 # see https://github.com/docker/docker/blob/9a9fc01af8fb5d98b8eec0740716226fadb3735c/contrib/mkimage/debootstrap
