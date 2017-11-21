@@ -1,5 +1,5 @@
 FROM scratch
-ADD https://partner-images.canonical.com/core/precise/current/ubuntu-precise-core-cloudimg-amd64-root.tar.gz /
+ADD ./ubuntu-precise-core-cloudimg-amd64-root.tar.gz ./
 
 # a few minor docker-specific tweaks
 # see https://github.com/docker/docker/blob/9a9fc01af8fb5d98b8eec0740716226fadb3735c/contrib/mkimage/debootstrap
@@ -42,6 +42,14 @@ RUN sed -i 's/^#\s*\(deb.*universe\)$/\1/g' /etc/apt/sources.list
 # make systemd-detect-virt return "docker"
 # See: https://github.com/systemd/systemd/blob/aa0c34279ee40bce2f9681b496922dedbadfca19/src/basic/virt.c#L434
 RUN mkdir -p /run/systemd && echo 'docker' > /run/systemd/container
+
+# install sudo
+RUN apt-get install sudo
+
+# user and sudo
+RUN echo "%users        ALL=(ALL)       NOPASSWD: ALL" > /etc/sudoers.d/dockeruser
+
+USER wzhang:users
 
 # overwrite this with 'CMD []' in a dependent Dockerfile
 CMD ["/bin/bash"]
