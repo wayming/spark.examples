@@ -13,7 +13,7 @@ RUN apt-get install -y iputils-ping
 RUN apt-get install -y vim
 
 # Setup samba
-RUN apt-get install samba
+RUN apt-get install -y samba
 RUN echo $'[sparkuser]    \n\
    comment = sparkuser    \n\
    path = /home/sparkuser \n\
