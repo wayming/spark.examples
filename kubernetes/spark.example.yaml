@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: spark.example
+spec:
+  containers:
+  - name: sandbox
+    image: 172.17.0.1:5000/spark.example.local
+    imagePullPolicy: Never
+  imagePullSecrets:
+  - name: regsecret
+
