@@ -14,13 +14,15 @@ RUN apt-get install -y vim
 
 # Setup samba
 RUN apt-get install -y samba
-RUN echo $'[sparkuser]    \n\
+RUN echo '[sparkuser]     \n\
    comment = sparkuser    \n\
    path = /home/sparkuser \n\
    browseable = yes       \n\
    read only = no         \n\
    guest ok = yes         \n\
 ' >> /etc/samba/smb.conf
+# Somehow this does not start samba service
+# Start later with docker exec command
 RUN service smbd restart
 
 RUN apt-get install -y git 
@@ -38,4 +40,3 @@ RUN pwd
 RUN ls -al spark
 WORKDIR /home/sparkuser/spark
 RUN mvn -DskipTests clean package
-

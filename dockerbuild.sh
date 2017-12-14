@@ -1,1 +1,1 @@
-docker build -t spark.exmple .
+docker build -t spark.example .
