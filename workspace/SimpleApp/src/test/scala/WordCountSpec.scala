@@ -1,10 +1,10 @@
-import main.scala.WordCount
+import SimpleApp.WordCount
 import org.scalatest._
 
 class WordCountSpec extends FlatSpec {
-  "WordCount app " should "run" in {
+  "SimpleApp.WordCount app " should "run" in {
     val count = new WordCount
     count.execute()
-    println("WordCount App Test Passed")
+    println("SimpleApp.WordCount App Test Passed")
   }
 }
