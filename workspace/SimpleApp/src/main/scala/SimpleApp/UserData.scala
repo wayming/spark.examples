@@ -20,9 +20,11 @@ class UserData {
 
   def GenerateFollowers(fileName: String, range: Int): Unit = {
     val fileHandle = new BufferedWriter(new FileWriter(new File(fileName)))
-    val output = for (i <- 1 to range * range)
-        yield (1+Random.nextInt(range)).toString + " " + (1+Random.nextInt(range)).toString
-    fileHandle.write(output.mkString("\n"))
+    for (i <- 1 to range) {
+      val rows = (1 to range).map( x => (1+Random.nextInt(range)).toString + " " + (1+Random.nextInt(range)).toString )
+      fileHandle.write(rows.mkString("\n"))
+    }
+
     fileHandle.close()
   }
 }

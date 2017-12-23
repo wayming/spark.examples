@@ -12,18 +12,18 @@ class PageRank {
     val sc = new SparkContext(conf)
 
 
-    val graph = GraphLoader.edgeListFile(sc, "src/main/resources/followers.txt")
+    val graph = GraphLoader.edgeListFile(sc, "src/main/resources/followers1.txt")
     val ranks = graph.pageRank(0.0001).vertices
     println(ranks.collect.mkString("\n"))
-    val users = sc.textFile("src/main/resources/users.txt").map({
+    val users = sc.textFile("src/main/resources/users1.txt").map({
       line =>
         val fields = line.split(",")
         (fields(0).toLong, fields(1))
     })
     val ranksByUsername = users.join(ranks).map({
-      case (_, (username, rank)) => (username, rank)
+      case (_, (username, rank)) => (rank, username)
     })
-    println(ranksByUsername.collect.mkString("\n"))
+    println(ranksByUsername.top(10).mkString("\n"))
 
     sc.stop()
   }

@@ -1,0 +1,14 @@
+13:31:42.241881 Dec 22 INPUT DEBUG: Checking for commits in file 'event_guidance_reprocess.evt' with status 1 ...
+13:31:42.241882 Dec 22 OUTPUT DEBUG: Checking transaction 100 with status 1
+13:31:42.241884 Dec 22 INPUT DEBUG: File is active
+13:31:42.241886 Dec 22 INPUT DEBUG: ENM_Status::HasPendingFile(): File event_guidance_reprocess.evt has status 1
+13:31:42.241888 Dec 22 TIMEOUT DEBUG: Handling timeout "new file"
+13:31:42.241889 Dec 22  TX     erb_receive_command(wait=false)
+13:31:42.241891 Dec 22  TX     erb_receive_command(): not found
+13:31:42.241893 Dec 22 INPUT DEBUG: Checking for commits (wait=false)...
+13:31:42.241895 Dec 22 INPUT DEBUG: Checking for commits in file 'event_guidance_reprocess.evt' with status 1 ...
+13:31:42.241897 Dec 22 OUTPUT DEBUG: Checking transaction 100 with status 1
+13:31:42.241898 Dec 22 INPUT DEBUG: File is active
+13:31:42.241900 Dec 22 INPUT DEBUG: ENM_Status::HasPendingFile(): File event_guidance_reprocess.evt has status 1
+13:31:42.241902 Dec 22 TIMEOUT DEBUG: Thread 7f8176e905e0: Timeout "new file" is overdue
+13:31:42.241904 Dec 22 INPUT DEBUG: Timeout occurred
