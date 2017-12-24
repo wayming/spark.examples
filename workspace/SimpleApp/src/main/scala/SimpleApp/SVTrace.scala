@@ -27,8 +27,8 @@ class SVTrace {
         dateFormat.parse(timeStamps.mkString(" ")).toInstant.getEpochSecond
       val epochTime = epochSeconds.toDouble * 1000000 + microSeconds.toDouble
       (epochTime, line)
-    }).
+    })
 
-    println(result)
+    println(result.toString())
   }
 }
