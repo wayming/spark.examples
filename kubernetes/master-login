@@ -1,0 +1,3 @@
+pod=`kubectl get po --no-headers | grep master | awk '{print $1}'`
+kubectl exec -it $pod bash
+
